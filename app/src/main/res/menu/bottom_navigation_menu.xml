@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/page_1"
+        android:contentDescription="Navigate to SpeechToText page"
+        android:enabled="true"
+        android:icon="@mipmap/microphone" />
+    <item
+        android:id="@+id/page_2"
+        android:contentDescription="Navigate to pinging page"
+        android:enabled="true"
+        android:icon="@mipmap/ping2" />
+    <item
+        android:id="@+id/page_3"
+        android:contentDescription="Navigate to textToSpeech page"
+        android:enabled="true"
+        android:icon="@mipmap/speechbubble" />
+
+
+</menu>

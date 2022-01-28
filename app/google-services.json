@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "389434652259",
+    "firebase_url": "https://caringfocus-84c5c-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "caringfocus-84c5c",
+    "storage_bucket": "caringfocus-84c5c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:389434652259:android:b94ec697623879fec6aa56",
+        "android_client_info": {
+          "package_name": "sg.edu.np.mad.voiceassist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "389434652259-k2s6koo8m9i5mpken170lnpdeglb167g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "sg.edu.np.mad.voiceassist",
+            "certificate_hash": "db7969020fd2f676c9a1168ca8bec9a6454afd27"
+          }
+        },
+        {
+          "client_id": "389434652259-f55q286jle7uu8n1dd3ut6r5p3c947vj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDy5WsdyQyGU2aOuNJtrEvDPPTVRGAi_Xg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "389434652259-f55q286jle7uu8n1dd3ut6r5p3c947vj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
