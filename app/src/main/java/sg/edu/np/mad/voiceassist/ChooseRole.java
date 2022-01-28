@@ -36,6 +36,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -142,15 +143,14 @@ public class ChooseRole extends AppCompatActivity {
     }
 
     private void showAlert(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(ChooseRole.this);
-        builder.setTitle("Please enter your phone number");
+
+        MaterialAlertDialogBuilder mBuilder = new MaterialAlertDialogBuilder(ChooseRole.this,R.style.ThemeOverlay_App_MaterialAlertDialog);
+//        AlertDialog.Builder builder = new AlertDialog.Builder(ChooseRole.this);
+        mBuilder.setTitle("Please enter your phone number");
         Context context = ChooseRole.this;
         LinearLayout layout = new LinearLayout(context);
         layout.setOrientation(LinearLayout.VERTICAL);
-
         layout.removeAllViews();
-
-
 
         if (name != null) {
             if(name.getParent() != null) {
@@ -290,8 +290,8 @@ public class ChooseRole extends AppCompatActivity {
             }
         });
 
-        builder.setView(layout);
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        mBuilder.setView(layout);
+        mBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 if (imageUri == null){
@@ -353,7 +353,7 @@ public class ChooseRole extends AppCompatActivity {
 
 
         });
-        builder.show();
+        mBuilder.show();
     }
     private void choosePicture(){
         Intent intent = new Intent();

@@ -84,6 +84,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -205,7 +206,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                         unsubscribe();
                         unpublish();
                         speak("Help is on the way!");
-                        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(MainActivity.this,R.style.ThemeOverlay_App_MaterialAlertDialog);
                         builder.setTitle("Help is on the way!");
                         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override

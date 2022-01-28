@@ -44,6 +44,7 @@
         android:layout_height="84dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
+        android:layout_marginBottom="20dp"
         android:background="#FFFFFF"
         android:contentDescription="choose to be a helper"
         android:fontFamily="@font/poppins"
@@ -52,10 +53,8 @@
         app:backgroundTint="#ffb186"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.627"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.777" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/helpee"
@@ -63,16 +62,15 @@
         android:layout_height="84dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
+        android:layout_marginBottom="20dp"
         android:background="#FFFFFF"
         android:contentDescription="choose to be a helpee"
         android:fontFamily="@font/poppins"
         android:text="Helpee"
         android:textColor="#FFFFFF"
         app:backgroundTint="#5673DD"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/helper"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.627"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.616" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
