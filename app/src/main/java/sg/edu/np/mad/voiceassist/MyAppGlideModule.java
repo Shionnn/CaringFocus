@@ -11,7 +11,7 @@ import java.io.InputStream;
 
 @GlideModule
 public class MyAppGlideModule extends AppGlideModule {
-
+    //using glide to set images from firebase https://guides.codepath.com/android/Displaying-Images-with-the-Glide-Library
     @Override
     public void registerComponents(Context context, Glide glide, Registry registry) {
         // Register FirebaseImageLoader to handle StorageReference

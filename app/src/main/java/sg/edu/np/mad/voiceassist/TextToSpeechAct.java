@@ -31,7 +31,6 @@ public class TextToSpeechAct extends AppCompatActivity implements BottomNavigati
     private TextToSpeech mTTS;
     private EditText mEditText;
     private View layoutView;
-    private Button mButtonSpeak;
     private BottomNavigationView bottomNavigation;
     private FloatingActionButton mHistory;
     DatabaseHandler text_DBHandler = new DatabaseHandler(this, null, null, 1);

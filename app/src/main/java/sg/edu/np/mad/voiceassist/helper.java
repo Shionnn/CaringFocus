@@ -37,11 +37,12 @@ public class helper extends AppCompatActivity {
 
     }
 
+    //Start background service
     public void startService(View v){
         Intent serviceIntent = new Intent(this, helperBackgroundProcess.class);
         ContextCompat.startForegroundService(this, serviceIntent);
     }
-
+    //Stop background service
     public void stopService(View v){
         Intent serviceIntent = new Intent(this, helperBackgroundProcess.class);
         stopService(serviceIntent);

@@ -31,7 +31,6 @@ public class showHelpee extends AppCompatActivity {
     Intent intent;
     String UID;
     TextView TVname, TVphonenum, TVlocation;
-    Button showMap;
     private com.google.android.gms.nearby.messages.Message mMessage;
 
     FirebaseStorage storage;
@@ -79,6 +78,7 @@ public class showHelpee extends AppCompatActivity {
                         TVphonenum.setText(document.get("PhoneNumber").toString());
                         TVlocation.setText(document.get("Location").toString());
                         String helper = new String("helper");
+                        //this publish is to publish a specific message so the helpee who pinged can recieve it and confirm that help is on the way
                         publish(helper+UID);
                     } else {
                         Log.d(TAG, "No such document");

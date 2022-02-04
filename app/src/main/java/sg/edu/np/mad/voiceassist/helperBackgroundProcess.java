@@ -153,6 +153,7 @@ public class helperBackgroundProcess extends Service {
     public void onCreate() {
         super.onCreate();
 //        mMessage = new com.google.android.gms.nearby.messages.Message("Hello World".getBytes());
+        // start receiving the pings from helpee's
         mMessageListener = new MessageListener() {
             @Override
             public void onFound(com.google.android.gms.nearby.messages.Message message) {
@@ -160,7 +161,7 @@ public class helperBackgroundProcess extends Service {
                 String check = new String(message.getContent());
                 Log.i("MessageFound-helper", "Found message: " + check);
                 if (check.startsWith("helper")){
-
+                // empty cause helper shouldnt recieve pings from other helpers.
                 }
                 else{
                     String UID = new String(message.getContent());

@@ -78,6 +78,7 @@ public class ChooseRole extends AppCompatActivity {
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
 
+        //Navigate to the pages based on what the user chose at the start
         if (role.equals("helpee") && !UID.isEmpty()){
             startActivity(new Intent(ChooseRole.this, MainActivity.class));
             finish();
@@ -88,6 +89,7 @@ public class ChooseRole extends AppCompatActivity {
         }
         setContentView(R.layout.activity_choose_role);
 
+        //Initialise TTS
         mTTS = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
@@ -142,8 +144,9 @@ public class ChooseRole extends AppCompatActivity {
         mTTS.speak(string, TextToSpeech.QUEUE_FLUSH,null);
     }
 
-    private void showAlert(){
 
+    //Alert to ask for name, num, emergency num, and image
+    private void showAlert(){
 //        MaterialAlertDialogBuilder mBuilder = new MaterialAlertDialogBuilder(ChooseRole.this,R.style.ThemeOverlay_App_MaterialAlertDialog);
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(ChooseRole.this);
         mBuilder.setTitle("Please enter your phone number");
@@ -152,6 +155,7 @@ public class ChooseRole extends AppCompatActivity {
         layout.setOrientation(LinearLayout.VERTICAL);
         layout.removeAllViews();
 
+
         if (name != null) {
             if(name.getParent() != null) {
                 ((ViewGroup)name.getParent()).removeView(name);
@@ -159,6 +163,7 @@ public class ChooseRole extends AppCompatActivity {
                 ((ViewGroup)EmeNum.getParent()).removeView(EmeNum);
                 ((ViewGroup)uploadImage.getParent()).removeView(uploadImage);
             }
+            //This is so when user input wrong input the alertdialog still retain the inputs that were correct
             name.setText(name.getText().toString());
             name.setHint("Name");
             layout.addView(name);
@@ -182,6 +187,7 @@ public class ChooseRole extends AppCompatActivity {
             phoneNum.addTextChangedListener(new TextWatcher()  {
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    //phone number validation
                     if (phoneNum.getText().toString().length() != 8 || (!phoneNum.getText().toString().matches("[0-9]+"))) {
                         phoneNum.setError("Please enter a 8 digit number");
                     } else {

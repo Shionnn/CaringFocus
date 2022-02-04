@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         AlanConfig config = AlanConfig.builder().setProjectId("bd0eb3aaa6e78fe61712ce7b11c00ffb2e956eca572e1d8b807a3e2338fdd0dc/stage").build();
         alanButton = findViewById(R.id.alan_button);
         alanButton.initWithConfig(config);
-
+        //Commands for the Voice assistance
         AlanCallback alanCallback = new AlanCallback() {
             /// Handle commands from Alan Studio
             @Override
@@ -195,6 +195,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         bottomNavigation.setOnNavigationItemSelectedListener(this);
         bottomNavigation.setSelectedItemId(R.id.page_2);
 
+        //Receiving the message when helper publish
         mMessageListener = new MessageListener() {
             @Override
             public void onFound(com.google.android.gms.nearby.messages.Message message) {
@@ -221,6 +222,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             }
         };
 
+        //Code will only happen for the first time
         String firstTime = sharedPreferences.getString("first","");
         if (firstTime.isEmpty()){
             Handler h = new Handler();
@@ -242,9 +244,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         locationRequest.setInterval(5000);
         locationRequest.setFastestInterval(2000);
 
-
-
-
         final GestureDetector gdt = new GestureDetector(this, new GestureListener());
 
         layoutView.setOnTouchListener(new View.OnTouchListener() {
@@ -255,7 +254,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             }
         });
 
-
+        //Ping Button
         mButtonPing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -266,7 +265,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     }
 
-
+    //Swipe and hold detector
     private static final int SWIPE_MIN_DISTANCE = 120;
     private static final int SWIPE_THRESHOLD_VELOCITY = 200;
 
@@ -295,7 +294,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     }
 
 
-
+    //Publish the message to helpers
     private void publish(String message) {
         mMessage = new Message(message.getBytes());
         Nearby.getMessagesClient(this).publish(mMessage).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -323,7 +322,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                                                 int index = locationResult.getLocations().size() - 1;
                                                 double latitude = locationResult.getLocations().get(index).getLatitude();
                                                 double longitude = locationResult.getLocations().get(index).getLongitude();
-
+                                                //get location to put into database
                                                 Geocoder geocoder = new Geocoder(MainActivity.this, Locale.getDefault());
                                                 try{
                                                     List<Address> addressList = geocoder.getFromLocation(latitude,longitude,1);
@@ -335,6 +334,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                                                         public void onSuccess(Void aVoid) {
                                                             Log.d(TAG, "DocumentSnapshot successfully updated!");
                                                             subscribe();
+                                                            // after 1 min if no helper will call emergency num
                                                             Handler h = new Handler();
                                                             h.postDelayed(new Runnable() {
                                                                 @Override
@@ -370,7 +370,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                     } else {
                         requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
                         speak("If this is your first time using the pinging feature, you would need to allow this app to use your location, a popup will ask you for permissions, just click allow then click the pinging button again.");
-
                     }
                 }
 
@@ -423,7 +422,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         isEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
         return isEnabled;
-
     }
 
     private void turnOnGPS() {
