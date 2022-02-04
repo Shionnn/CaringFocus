@@ -28,23 +28,25 @@
         android:roundIcon="@mipmap/appicon"
         android:supportsRtl="true"
         android:theme="@style/Theme.VoiceAssist">
-        <activity android:name=".googleMaps"></activity>
         <activity
             android:name=".showHelpee"
-            android:launchMode="singleInstance" />
-        <activity android:name=".helper" />
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".helper"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ChooseRole"
-            android:launchMode="singleInstance">
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".SpeechToText"
-            android:launchMode="singleInstance" />
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"/>
         <meta-data
             android:name="com.google.android.nearby.messages.API_KEY"
             android:value="AIzaSyBecRRW4kQBNuW-W2PXmC0Vv9VekV-4cNM" />
@@ -58,10 +60,12 @@
             android:value="@integer/google_play_services_version" />
         <activity
             android:name=".TextToSpeechAct"
-            android:launchMode="singleInstance" />
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".MainActivity"
-            android:launchMode="singleInstance" />
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"/>
 
         <service android:name=".helperBackgroundProcess" />
     </application>

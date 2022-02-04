@@ -145,7 +145,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                     if (commandName.equals("navigateTTS")){
                         startActivity(new Intent(MainActivity.this, TextToSpeechAct.class));
                     }
-                    if (commandName.equals("navigateTTS")){
+                    if (commandName.equals("navigatePing")){
                         startActivity(new Intent(MainActivity.this, MainActivity.class));
                     }
                     if (commandName.equals("Ping")){
@@ -206,7 +206,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                         unsubscribe();
                         unpublish();
                         speak("Help is on the way!");
-                        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(MainActivity.this,R.style.ThemeOverlay_App_MaterialAlertDialog);
+                        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                         builder.setTitle("Help is on the way!");
                         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
@@ -228,7 +228,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 @Override
                 public void run() {
                     // run your code here
-                    speak("Please click allow on these permission for the app to fully function...... This is the Pinging Feature Page, Swipe left for the text to speech feature, swipe right for the speech to text feature.Swipe up or down to activate the feature.");
+                    speak("Please click allow on these permission for the app to fully function...... This is the Pinging Feature Page, Swipe left for the text to speech feature, swipe right for the speech to text feature Swipe up or down or hold down on the screen to activate the feature, To Start using the Voice Assistant, Say Hey Alan, wait for the sound q and say what can you do");
                     sharedPreferences = getSharedPreferences(GLOBAL_PREFS, MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("first", "true");
@@ -302,6 +302,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             @Override
             public void onSuccess(Void aVoid) {
                 Log.i("Message", "Publishing message: " + message);
+                speak("Pinging others around you!");
                 Eme = false;
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {

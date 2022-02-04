@@ -144,8 +144,8 @@ public class ChooseRole extends AppCompatActivity {
 
     private void showAlert(){
 
-        MaterialAlertDialogBuilder mBuilder = new MaterialAlertDialogBuilder(ChooseRole.this,R.style.ThemeOverlay_App_MaterialAlertDialog);
-//        AlertDialog.Builder builder = new AlertDialog.Builder(ChooseRole.this);
+//        MaterialAlertDialogBuilder mBuilder = new MaterialAlertDialogBuilder(ChooseRole.this,R.style.ThemeOverlay_App_MaterialAlertDialog);
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(ChooseRole.this);
         mBuilder.setTitle("Please enter your phone number");
         Context context = ChooseRole.this;
         LinearLayout layout = new LinearLayout(context);
